@@ -19,6 +19,75 @@ function SettingsScreen(){
   );
 }
 
+function FootballScreen() {
+  return (
+    <View style={styles.footballContainer}>
+      <Text style={styles.footballTitle}>Football</Text>
+      <View style={styles.footballCardContainer}>
+        <View style={styles.footballCard}>
+          <Image source={require('../../../assets/images/football-player2.jpg.jpg')} style={styles.footballImage} />
+          <View style={styles.footballCardContent}>
+            <Text style={styles.footballCardTitle}>Football Teams</Text>
+            <Text style={styles.footballCardDescription}>Create your teams.</Text>
+            <TouchableOpacity style={styles.footballCardButton}>
+              <Text style={styles.footballCardButtonText}>Go</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.footballCard}>
+          <Image source={require('../../../assets/images/football-news.png')} style={styles.footballImage} />
+          <View style={styles.footballCardContent}>
+            <Text style={styles.footballCardTitle}>Football Scores</Text>
+            <Text style={styles.footballCardDescription}>Check out the latest football scores and results.</Text>
+            <TouchableOpacity style={styles.footballCardButton}>
+              <Text style={styles.footballCardButtonText}>View Scores</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+function BasketballScreen(){
+  return (
+    <View style={styles.footballContainer}>
+      <Text style={styles.footballTitle}>Football</Text>
+      <View style={styles.footballCardContainer}>
+        <View style={styles.footballCard}>
+          <Image source={require('../../../assets/images/nba.jpg')} style={styles.footballImage} />
+          <View style={styles.footballCardContent}>
+            <Text style={styles.footballCardTitle}>Basketball Teams</Text>
+            <Text style={styles.footballCardDescription}>Create your teams.</Text>
+            <TouchableOpacity style={styles.footballCardButton}>
+              <Text style={styles.footballCardButtonText}>Go</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.footballCard}>
+          <Image source={require('../../../assets/images/nbafield.jpg')} style={styles.footballImage} />
+          <View style={styles.footballCardContent}>
+            <Text style={styles.footballCardTitle}>Basketball Scores</Text>
+            <Text style={styles.footballCardDescription}>Check out the latest Basketball scores and results.</Text>
+            <TouchableOpacity style={styles.footballCardButton}>
+              <Text style={styles.footballCardButtonText}>View Scores</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+function TennisScreen(){
+  return (
+    <View style={styles.container}>
+      <Text> Tennis</Text>
+    </View>
+  );
+}
+
 const HomeScreen = () => {
   const route = useRoute();
   //const {username} = route.params;
@@ -84,6 +153,12 @@ const NavigationBar = () => {
       let iconName;
       if (route.name == "Home") {
         iconName = "home";
+      } else if (route.name == "Football") {
+        iconName = "football-outline";
+      } else if (route.name == "Basketball") {
+        iconName = "basketball-outline";
+      } else if (route.name == "Tennis") {
+        iconName = "tennisball-outline";
       } else if (route.name == "Settings") {
         iconName = "settings-outline";
       }
@@ -92,6 +167,9 @@ const NavigationBar = () => {
   })}
 >
   <tab.Screen name="Home" component={HomeScreen} />
+  <tab.Screen name="Football" component={FootballScreen} />
+  <tab.Screen name="Basketball" component={BasketballScreen} />
+  <tab.Screen name="Tennis" component={TennisScreen} />
   <tab.Screen name="Settings" component={SettingsScreen} />
 </tab.Navigator>
   </NavigationContainer>
@@ -162,6 +240,64 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     width: '30%',
   },
+  footballContainer: {
+    flex: 1,
+    padding: 20,
+  },
+  footballTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  footballCardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'pace-between',
+    flexWrap: 'wrap',
+  },
+  footballCard: {
+    width: '48%',
+    marginBottom: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  footballImage: {
+    width: '100%',
+    height: 300,
+    resizeMode: "cover",
+  },
+  footballCardContent: {
+    padding: 20,
+  },
+  footballCardTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  footballCardDescription: {
+    fontSize: 14,
+    marginBottom: 15,
+  },
+  footballCardButton: {
+    backgroundColor: '#007bff',
+    padding: 10,
+    borderRadius: 5,
+  },
+  footballCardButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
+
 });
 
 export default NavigationBar;
