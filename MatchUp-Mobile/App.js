@@ -4,7 +4,7 @@ import SingIn from './src/screens/SingIn';
 import SignUp from './src/screens/SignUp';
 import ForgotPassword from './src/screens/ForgotPassword';
 import NewPassword from './src/screens/NewPassword';
-import Navigation from './src/navigation';
+import Navigation from './src/navigation/index';
 import Axios from "axios";
 import { CreateBottomTabNavigator} from  '@react-navigation/bottom-tabs';
 

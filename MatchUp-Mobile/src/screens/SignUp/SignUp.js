@@ -35,13 +35,14 @@ const SignUp = () => {
 
     return (
       <View style={styles.root}>
-        <Text style= {styles.title}>Create an account
+        <Text style= {styles.title}>Create New account
         </Text>
 
         <CustomInput
         name="username"
         control={control}
         placeholder= "Username"
+        type= "SECONDARY"
         rules={{
           required: 'Username is required', 
           minLength: {
@@ -55,11 +56,14 @@ const SignUp = () => {
         name="email"
         control={control}
         placeholder= "Email" 
+        type= "SECONDARY"
+
        
         />
         <CustomInput
         name="password"
         control={control}
+        type= "SECONDARY"
         placeholder= "Password" 
         secureTextEntry
         rules={{
@@ -73,6 +77,8 @@ const SignUp = () => {
         />
         <CustomInput
         name="password-repeat"
+        type= "SECONDARY"
+
         control={control}
         placeholder= "Repeat Password" 
         secureTextEntry
@@ -89,11 +95,15 @@ const SignUp = () => {
         <Text style={styles.link}> Privacy Policy</Text>
         </Text>
 
-        <SocialSignInButtons />
+        {/* <SocialSignInButtons /> */}
 
 
         <CustomButton 
-        text= "Have an Accoun? Sign In" 
+text={
+  <Text>
+    Have an account ? <Text style={{ color: 'red' }}>Sign In</Text>
+  </Text>
+}        
         onPress={onSignInPressed}
         type= "TERTIARY"
         />  

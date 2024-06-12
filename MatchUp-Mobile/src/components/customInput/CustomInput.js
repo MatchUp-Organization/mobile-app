@@ -1,8 +1,11 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import { View, Text, TextInput, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
 import { Controller } from 'react-hook-form';
 
-const CustomInput = ({control, name, rules ={}, placeholder, secureTextEntry}) => {
+const { width: screenWidth } = Dimensions.get('window');
+
+
+const CustomInput = ({control, name, rules ={}, placeholder, secureTextEntry, type = "PRIMARY"}) => {
   return (
       <Controller 
         control={control}
@@ -13,14 +16,16 @@ const CustomInput = ({control, name, rules ={}, placeholder, secureTextEntry}) =
         <View 
           style = {[
             styles.container, 
-            {borderColor: error ? 'red': '#e8e8e8'
+            {borderColor: error ? 'red': 'black'
           }]}>
         <TextInput 
+        
           value={value} 
           onChangeText={onChange} 
           onBlur={onBlur} 
-          placeholder={placeholder} 
-          style= {styles.input}
+          placeholder={placeholder}
+           
+          style= {styles[`text_${type}`]}
           secureTextEntry={secureTextEntry}
           />
         </View>
@@ -36,14 +41,31 @@ const CustomInput = ({control, name, rules ={}, placeholder, secureTextEntry}) =
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#EDF6F2",
-    width: '100%',
-    borderColor: '#e8e8e8',
+    maxWidth: screenWidth - 20,  // Max width is screen width minus 40 pixels
+    width: '100%',  // Take up full width,
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 20,
+    borderStyle: "solid",
     paddingHorizontal: 10,
     marginVertical: 10,
+    height: 60,
+    
+
   },
-  input: {},
+  text_PRIMARY: {
+    letterSpacing: 0.8,
+    marginLeft: "6.31%",
+    marginTop: "10%",
+    
+  },
+
+  text_SECONDARY: {
+    letterSpacing: 0.8,
+    marginTop: "2%",
+    marginLeft: "3%",
+
+
+  },
 });
 
 export default CustomInput

@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, StyleSheet, Image, Text, ScrollView, TextInput } from 'react-native'
+import { View, Dimensions, TouchableOpacity, StyleSheet, Image, Text, ScrollView, TextInput } from 'react-native'
  import CustomInput from '../../components/customInput';
  import SignIn from '../../screens/SingIn';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const tab = createBottomTabNavigator();
+const { width, height } = Dimensions.get('window')
 
 function SettingsScreen(){
   return (
@@ -242,7 +243,8 @@ const styles = StyleSheet.create({
   },
   footballContainer: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: '5%', // 5% of the screen width
+    paddingVertical: '2vh', // 2% of the screen height
   },
   footballTitle: {
     fontSize: 24,
