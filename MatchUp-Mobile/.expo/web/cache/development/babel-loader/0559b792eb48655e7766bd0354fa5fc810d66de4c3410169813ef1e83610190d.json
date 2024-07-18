@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./NewPassword\";","map":{"version":3,"names":["default"],"sources":["/home/alexx/MatchUp-Mobile/src/screens/NewPassword/index.js"],"sourcesContent":["export {default} from './NewPassword';"],"mappings":"AAAA,SAAQA,OAAO"},"metadata":{},"sourceType":"module","externalDependencies":[]}

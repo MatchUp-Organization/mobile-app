@@ -29,35 +29,36 @@ const Splashscreen = () => {
 
 const styles = StyleSheet.create({
   root: {
-    padding: 25,
+    padding: 50,
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center', // Center vertically
     alignItems: 'center', // Center horizontally
+    paddingBottom:25,
 },
-  container: {
-    backgroundColor: Color.colorSteelblue,
-    paddingHorizontal: 100,
-    paddingVertical: 27,
-    paddingBottom: 50,
-    borderRadius: Border.br_xl
-  },
-  start: {
-    color: Color.white,
-    fontWeight: "600",
-    fontSize: 32,
-    lineHeight: 16,
-    fontFamily: FontFamily.openSansSemiBold,
-    textAlign: "center",
-  },
-  signUpSection: {
-    backgroundColor: Color.colorSteelblue,
-    paddingHorizontal: 100,
-    paddingVertical: 27,
-    paddingBottom: 25,
-    marginTop: 100,
-    borderRadius: Border.br_xl,
-    
-  },
+  
+start: {
+  color: Color.white,
+  fontWeight: "600",
+  fontSize: 32,
+  lineHeight: 16,
+  fontFamily: FontFamily.openSansSemiBold,
+  paddingTop: "50%"
+  
+
+},
+ signUpSection: {
+  backgroundColor: Color.colorSteelblue,
+  paddingHorizontal: 100,
+  paddingBottom: 25,
+  marginTop: 100,
+  borderRadius: Border.br_xl,
+  display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  // ...
+},
   tonSportTa: {
     alignItems: 'center',
     textAlign: "center",
@@ -65,8 +66,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontFamily: FontFamily.openSansBold,
     color: Color.colorBlack,
-    width: 330,
-    height: 31,
+    lineHeight: 16,
   },
   logoMatchup1Icon: {
     alignItems: 'center',
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     height: 246,
     position: "absolute",
     resizeMode: 'contain', // Use contain to scale the image
+    marginBottom: 50,
 
   },
   matchup: {
@@ -83,10 +84,9 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.latoRegular,
     color: Color.colorSteelblue,
     display: "flex",
-    width: 98,
-    height: 56,
+    
     textAlign: "center",
-    marginTop: 100,
+    marginTop: "50%",
   },
   splashscreen: {
     width: '100%',
@@ -96,5 +96,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_xl,
   },
 });
+
+
 
 export default Splashscreen;

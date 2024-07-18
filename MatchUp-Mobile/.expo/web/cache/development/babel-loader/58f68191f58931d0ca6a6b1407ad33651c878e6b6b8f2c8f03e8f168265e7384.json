@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./CustomButton\";","map":{"version":3,"names":["default"],"sources":["/home/alexx/MatchUp-Mobile/src/components/CustomButton/index.js"],"sourcesContent":["export { default } from \"./CustomButton\";"],"mappings":"AAAA,SAASA,OAAO"},"metadata":{},"sourceType":"module","externalDependencies":[]}

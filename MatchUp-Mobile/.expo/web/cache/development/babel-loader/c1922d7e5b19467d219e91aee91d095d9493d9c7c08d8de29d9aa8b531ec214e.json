@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./SplashScreen\";","map":{"version":3,"names":["default"],"sources":["/home/alexx/MatchUp-Mobile/src/screens/SplashScreen/index.js"],"sourcesContent":["export {default} from './SplashScreen';"],"mappings":"AAAA,SAAQA,OAAO"},"metadata":{},"sourceType":"module","externalDependencies":[]}

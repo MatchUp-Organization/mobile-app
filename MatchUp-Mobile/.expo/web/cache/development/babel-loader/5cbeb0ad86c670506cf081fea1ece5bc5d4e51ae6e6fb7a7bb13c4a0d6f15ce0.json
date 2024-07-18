@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./SingIn\";","map":{"version":3,"names":["default"],"sources":["/home/alexx/MatchUp-Mobile/src/screens/SingIn/index.js"],"sourcesContent":["export { default } from './SingIn';"],"mappings":"AAAA,SAASA,OAAO"},"metadata":{},"sourceType":"module","externalDependencies":[]}

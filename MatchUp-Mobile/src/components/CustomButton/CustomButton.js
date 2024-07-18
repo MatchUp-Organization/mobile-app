@@ -44,7 +44,7 @@ const styles = StyleSheet.create ({
 
     container_PRIMARY:{
       backgroundColor: Color.colorSteelblue,
-      width: '100%',
+      //width: 382,
         padding: 15,
         marginVertical: 10,
         alignItems: 'center',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create ({
         fontSize: 16,
         overflow: "hidden",
         flex: 1,
-
+  
     },
 
     text_TERTIARY:{
@@ -87,6 +87,9 @@ const styles = StyleSheet.create ({
       overflow: "hidden",
       borderColor: 'black', // or any other border color you want
       borderWidth: 1,
+      flexDirection: 'row', // row direction
+      justifyContent: 'center', // center vertically
+      alignItems: 'flex-start', // align to left horizontally
     },
 
       text_SECONDARY:{

@@ -6,10 +6,6 @@
 #import <cxxreact/JSExecutor.h>
 #import <React/RCTCxxBridgeDelegate.h>
 
-#if __has_include(<RNReanimated/REAInitializer.h>)
-#import <RNReanimated/REAInitializer.h>
-#endif // __has_include(<RNReanimated/REAInitializer.h>)
-
 @interface DevClientAppDelegate () <RCTCxxBridgeDelegate>
 @end
 
@@ -57,13 +53,9 @@
   return [self.interceptor sourceURLForBridge:bridge];
 }
 
-- (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
-{
-#if __has_include(<RNReanimated/REAInitializer.h>) && !RCT_NEW_ARCH_ENABLED
-  reanimated::REAInitializer(bridge);
-#endif // __has_inclide(<RNReanimated/REAInitializer.h>) && !RCT_NEW_ARCH_ENABLED
-
-  return [super jsExecutorFactoryForBridge:bridge];
+- (NSURL *)bundleURL {
+  // Passing nil bridge because the underlying `sourceURLForBridge:` doesn't use the bridge.
+  return [self.interceptor sourceURLForBridge:nil];
 }
 
 @end

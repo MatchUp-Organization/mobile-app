@@ -26,9 +26,10 @@ const SingIn = (data) => {
 
     const [token, setToken] = useState("");
     const [userInfo, setUserInfo] = useState(null);
+
     const [request, response, promptAsync] = Google.useAuthRequest({
      //APIprincipale webClientId: "871816637044-ejvmsf74rnf29sludjqr7t60tne94sam.apps.googleusercontent.com",
-      webClientId: "328673821687-j5kcj9rl3hm7230n3njt3qrnff4cof26.apps.googleusercontent.com",
+      webClientId: "871816637044-ejvmsf74rnf29sludjqr7t60tne94sam.apps.googleusercontent.com",
     //expoClientId: "871816637044-74uvfa2epj1vpr0qc3883l4s8mv0q5g7.apps.googleusercontent.com",
       iosClientId: "871816637044-esekd2fr8ci43gp9l7aou6nlhdi6nnln.apps.googleusercontent.com",
       androidClientId: "871816637044-taf445l6c45fgje4odbc1hhvfisnmm5h.apps.googleusercontent.com",
@@ -74,7 +75,7 @@ const SingIn = (data) => {
         const user = await response.json();
         await AsyncStorage.setItem("@user", JSON.stringify(user));
         setUserInfo(user);
-        setUsername(userInfo.name);
+        //setUsername(userInfo.name);
       } catch (error) {
         // Add your own error handler here
       }
@@ -92,7 +93,7 @@ const SingIn = (data) => {
 
     const createUser = async (username, password) => {
        try {
-        const response = await axios.post("http://localhost:3001/users", {
+        const response = await axios.post("http://localhost:3000/users", {
           //const response = await axios.post("http://172.20.10.2:3001/users", {
           username,
           password,
@@ -127,27 +128,31 @@ const SingIn = (data) => {
     const onSignUpAccountPressed = () => {
       navigation.navigate('SignUp');
     }
-    
-    const onSignInGoogle = async (user) => {
-      const userData = {
-        name: user.name,
-        email: user.email,
-        picture: user.picture,
-        id: user.id,
-      };
 
+    const sendGoogleUserDataToBackend = async (userInfo) => {
       try {
-        const response = await axios.post("http://localhost:3001/users", {
-          //const response = await axios.post("http://172.20.10.2:3001/users", {
-         });
+        const response = await axios.get(`http://localhost:3000/auth/google/callback`, {
+          params: {
+            name: userInfo.name,
+            email: userInfo.email,
+            picture: userInfo.picture,
+            id: userInfo.id,
+          },
+        });
+        console.log(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
-        // handle error
+        console.error('Error sending Google user data to backend:', error);
       }
-    //navigation.navigate('Home', username)
-    navigation.navigate('Home');    
-    alert("HEY");      
     };
+    
+
+
+    const onSignInGoogle = async () => {
+      if (userInfo) {
+        await sendGoogleUserDataToBackend(userInfo);
+      }
+      navigation.navigate('Home');
+    }
 
     return (
       <View style={styles.root}>
@@ -230,6 +235,13 @@ const SingIn = (data) => {
           </Text>
           <Text style={styles.text}>Name: {userInfo.name}</Text>
           <Text style={styles.text}>Id: {userInfo.id}</Text>
+          
+          <Text style={styles.text}>nameTest: {username}</Text>
+          <Text style={styles.text}>idTest: {id}</Text>
+
+          <Text>ID: {userInfo.id}</Text>
+        <Text>Email: {userInfo.email}</Text>
+
 
 
           {/* <Text style={styles.text}>{JSON.stringify(userInfo, null, 2)}</Text> */}

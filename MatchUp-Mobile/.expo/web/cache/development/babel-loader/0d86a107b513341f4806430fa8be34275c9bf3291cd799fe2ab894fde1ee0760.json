@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./ForgotPassword\";","map":{"version":3,"names":["default"],"sources":["/home/alexx/MatchUp-Mobile/src/screens/ForgotPassword/index.js"],"sourcesContent":["export {default} from './ForgotPassword';"],"mappings":"AAAA,SAAQA,OAAO"},"metadata":{},"sourceType":"module","externalDependencies":[]}
